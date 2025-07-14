@@ -1,16 +1,20 @@
 package config
 
-// Config contiene parámetros constantes definidos en código (no se cargan de archivo externo)
+// Config contiene los parámetros de configuración de la aplicación.
 type Config struct {
-	ServerPort      string // Puerto del servidor HTTP
-	BaseURL         string // Dominio base para generar URLs cortas
-	MaxRetry        int    // Máximo número de reintentos para evitar colisiones
-	ShortCodeLength int    // Longitud del código corto
+	// ServerPort es el puerto donde corre el servidor (incluye el prefijo ':').
+	ServerPort string
+	// BaseURL es la URL base usada para generar los enlaces cortos (sin barra final).
+	BaseURL string
+	// MaxRetry es el número máximo de intentos para generar un código único.
+	MaxRetry int
+	// ShortCodeLength es la longitud del código corto generado.
+	ShortCodeLength int
 }
 
-// Get retorna una configuración predefinida sin dependencias externas
-func Get() Config {
-	return Config{
+// Get devuelve un puntero a Config con valores predefinidos.
+func Get() *Config {
+	return &Config{
 		ServerPort:      ":8080",
 		BaseURL:         "http://localhost:8080",
 		MaxRetry:        5,
