@@ -9,7 +9,7 @@ import (
 
 const (
 	// Configuración hardcodeada según restricciones
-	SHORT_CODE_LENGTH = 6
+	SHORT_CODE_LENGTH = 7
 	MAX_ATTEMPTS      = 5
 )
 
