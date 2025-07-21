@@ -4,7 +4,7 @@ Este proyecto implementa un **acortador de URLs** desarrollado en Go, cumpliendo
 
 ---
 
-## 🚀 Funcionalidad
+## Funcionalidad
 
 - Acorta URLs largas en un formato corto único.
 - Redirecciona automáticamente desde la URL corta hacia la original.
@@ -14,7 +14,7 @@ Este proyecto implementa un **acortador de URLs** desarrollado en Go, cumpliendo
 
 ---
 
-## 📁 Estructura del Proyecto
+## Estructura del Proyecto
 
 url-inteligente/
 ├── go.mod
@@ -31,7 +31,7 @@ Usamos un enfoque tipo "clean architecture" adaptado a Go, separando claramente 
 
 ---
 
-## 🔐 Generación de Códigos Cortos y Manejo de Colisiones
+## Generación de Códigos Cortos y Manejo de Colisiones
 
 - El algoritmo usa un **hash SHA1** de la URL original junto con la marca de tiempo y el intento actual.
 - Se toman los primeros 7 caracteres del hash para formar el código corto.
@@ -40,7 +40,7 @@ Usamos un enfoque tipo "clean architecture" adaptado a Go, separando claramente 
 
 ---
 
-## 🔁 Redirección: HTTP 301 vs 307
+## Redirección: HTTP 301 vs 307
 
 Se utiliza **HTTP 301 (Moved Permanently)** porque:
 
@@ -50,7 +50,7 @@ Se utiliza **HTTP 301 (Moved Permanently)** porque:
 
 ---
 
-## 🧠 Concurrencia y Almacenamiento
+## Concurrencia y Almacenamiento
 
 - El almacenamiento se implementa mediante un `map[string]string` protegido con `sync.RWMutex`.
 - Se permite acceso concurrente seguro para lecturas múltiples (`RLock`) y bloqueos exclusivos para escritura (`Lock`).
@@ -58,14 +58,14 @@ Se utiliza **HTTP 301 (Moved Permanently)** porque:
 
 ---
 
-## 🧪 Endpoints Principales
+## Endpoints Principales
 
 - `POST /shorten`: Acorta una URL (espera JSON `{ "url": "https://ejemplo.com" }`)
 - `GET /{codigo}`: Redirige hacia la URL original asociada al código.
 
 ---
 
-## ✅ Requisitos Cumplidos
+## Requisitos Cumplidos
 
 - ✔ Uso exclusivo de `net/http` (sin frameworks complejos).
 - ✔ Generación de códigos corta robusta y sin librerías externas.
@@ -75,7 +75,7 @@ Se utiliza **HTTP 301 (Moved Permanently)** porque:
 
 ---
 
-## 📦 Cómo ejecutar
+## Cómo ejecutar
 
 ```bash
 go run main.go
